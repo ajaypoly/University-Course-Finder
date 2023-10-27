@@ -9,11 +9,13 @@
 
 
 }
-.course-pagination{
+
+.course-pagination {
     position: fixed;
-    top: 30%;
-    left: 5%;
+    top: 89%;
+    left: 18%;
 }
+
 .course-box {
     background-color: rgba(253, 253, 253, 0.794);
     border-radius: 20px;
@@ -25,27 +27,85 @@
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.55);
 
 }
-.course-description{
- height: 230px;
+
+.course-description {
+    height: 230px;
     overflow: auto;
 }
-.course-button-div{
+
+.course-button-div {
     display: flex;
     justify-content: space-around;
-    
+
 }
-.course-heading-div{
-    min-height: 
-    85px;
+
+.course-heading-div {
+    min-height:
+        85px;
 }
-.course-heading{
+
+.course-heading {
     margin: 0;
     font-size: 20px;
 }
-.course-logo{
+
+.course-logo {
     width: 25px;
     height: 25%;
 }
+
+/* CSS to style the ReactPaginate component */
+.course-pagination-component {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.course-pagination-component li {
+    margin: 0 5px;
+}
+
+.course-pagination-component a {
+    text-decoration: none;
+    color: #656565;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #000
+}
+
+.course-pagination-component a:hover {
+    background-color: #687a8e;
+    color: #fff;
+    border-color:#687a8e;
+}
+
+/* Style for the "previous" and "next" labels */
+.course-pagination-component .previous,
+.course-pagination-component .next {
+    font-weight: bold;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 10px;
+    background-color: #000
+}
+
+.course-pagination-component .previous:hover,
+.course-pagination-component .next:hover {
+    background-color: #687a8e;
+    color: #fff;
+    border-color: #687a8e;
+}
+
+/* Style for the ellipsis (...) */
+.course-pagination-component .break {
+    margin: 0 5px;
+    font-weight: bold;
+}
+
 .glow-plus-button {
     margin-left: 8px;
     padding: 10px 20px;
@@ -58,9 +118,9 @@
     z-index: 0;
     border-radius: 10px;
     margin-bottom: 20px;
-  }
-  
-  .glow-on-hover {
+}
+
+.glow-on-hover {
     padding: 10px 20px;
     border: none;
     outline: none;
@@ -71,17 +131,17 @@
     z-index: 0;
     border-radius: 10px;
     margin-bottom: 20px;
-  }
-  
-  .glow-on-hover:before {
+}
+
+.glow-on-hover:before {
     content: "";
     background: linear-gradient(45deg,
-        #00ffd5,
-        #ff00c8,
-        #ff0000,
-        #ffa07a,
-        #ffff00,
-        #008080);
+            #00ffd5,
+            #ff00c8,
+            #ff0000,
+            #ffa07a,
+            #ffff00,
+            #008080);
     position: absolute;
     top: -2px;
     left: -2px;
@@ -94,21 +154,21 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     border-radius: 10px;
-  }
-  
-  .glow-on-hover:active {
+}
+
+.glow-on-hover:active {
     color: #000;
-  }
-  
-  .glow-on-hover:active:after {
+}
+
+.glow-on-hover:active:after {
     background: transparent;
-  }
-  
-  .glow-on-hover:hover:before {
+}
+
+.glow-on-hover:hover:before {
     opacity: 1;
-  }
-  
-  .glow-on-hover:after {
+}
+
+.glow-on-hover:after {
     z-index: -1;
     content: "";
     position: absolute;
@@ -118,18 +178,18 @@
     left: 0;
     top: 0;
     border-radius: 10px;
-  }
-  
-  @keyframes glowing {
+}
+
+@keyframes glowing {
     0% {
-      background-position: 0 0;
+        background-position: 0 0;
     }
-  
+
     50% {
-      background-position: 400% 0;
+        background-position: 400% 0;
     }
-  
+
     100% {
-      background-position: 0 0;
+        background-position: 0 0;
     }
-  }
+}
