@@ -11,24 +11,31 @@
 .course-pagination {
     position: fixed;
     top: 89%;
-    left: 18%;
+    left: 25%;
 }
 
 .course-box {
-    background-color: rgba(253, 253, 253, 0.794);
+    background-color: rgba(253, 253, 253, 0.67);
     border-radius: 20px;
     padding: 10px 30px;
-    width: 280px;
+    width: 380px;
     height: 450px;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.55);
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.55);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.55);
 
 }
+.course-box:hover {
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; 
+  }
 
 .course-description {
     height: 230px;
     overflow: auto;
+    font-size: 14px;
 }
 
 .course-button-div {
@@ -44,7 +51,7 @@
 
 .course-heading {
     margin: 0;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .course-logo {
@@ -188,7 +195,30 @@
         background-position: 0 0;
     }
 }
+@media screen and (max-width: 1670px) {
+    .course-box {
 
+        width: 300px;
+        height: 420px;
+
+    }
+    .course-pagination {
+
+        left: 15%;
+    }
+}
+@media screen and (max-width: 1524px) {
+    .course-box {
+
+        width: 260px;
+        height: 420px;
+
+    }
+    .course-pagination {
+
+        left: 15%;
+    }
+}
 @media screen and (max-width: 1450px) {
     .course-box {
 
@@ -227,6 +257,9 @@
 
         left: 10%;
     }
+    .course-description {
+        height: 225px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -260,4 +293,33 @@
 
         left: 8%;
     }
+}
+@media screen and (max-width: 882px) {
+    .course-box {
+
+        width: 150px;
+        height: 250px;
+
+    }
+    .course-pagination {
+
+        left: 0%;
+    }
+
+    .course-heading-div {
+        min-height: 81px;
+    }
+
+    .course-description {
+        height: 71px;
+        overflow: auto;
+    }
+    .course-list-div {
+    
+        top: 15%;
+     
+    }
+.course-pagination-component li {
+    margin: 0px;
+}
 }

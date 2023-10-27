@@ -1,0 +1,45 @@
+.search-div {
+    position: fixed;
+    top: 25px;
+    z-index: 2;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 5px;
+    background-color: rgba(238, 241, 244, 0.853);
+    max-height: 550px;
+    overflow: auto;
+    right: 2%;
+}
+
+.search-input {
+    background-color: rgba(238, 241, 244, 0.853);
+    border: 1px solid hsl(0, 0%, 80%);
+    width: 484px;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 20px;
+}
+.search-li{
+padding-left: 15px;}
+.search-ul {
+    list-style: none;
+    padding: 0;
+}
+
+h6 {
+    margin: 0;
+    cursor: pointer;
+}
+
+.description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+}
+
+/* Hover effect */
+h3:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+}
