@@ -6,8 +6,8 @@ import courseData from "../../data/Assignment_data.json";
 const itemsPerPage = 4;
 
 const CourseLists = () => {
-  const [data, setData] = useState(courseData); // Your data array
-  const [currentPage, setCurrentPage] = useState(0); // Current page for pagination
+  const [data, setData] = useState(courseData);
+  const [currentPage, setCurrentPage] = useState(0);
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
   const getVisibleCourses = () => {
