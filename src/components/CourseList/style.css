@@ -108,6 +108,21 @@
     font-weight: bold;
 }
 
+  .filter-names  {
+    position: fixed;
+    top: 25px;
+    left: 30px;
+  }
+
+  .filter-names input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+.filter-select{
+    background-color: #dbdbdb;
+  height: 60px;
+}
+
 .glow-plus-button {
     margin-left: 8px;
     padding: 10px 20px;

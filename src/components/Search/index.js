@@ -1,6 +1,6 @@
 import "./style.css";
 import courseData from "../../data/Assignment_data.json";
-
+import { FcSearch } from "react-icons/fc";
 import React, { useState } from "react";
 
 function UniversitySearch() {
@@ -30,13 +30,16 @@ function UniversitySearch() {
 
   return (
     <div className="search-div">
-      <input
-        className="search-input"
-        type="text"
-        placeholder="Search by name or description"
-        value={searchTerm}
-        onChange={handleSearchInputChange}
-      />
+      <div className="sticky-search">
+        <FcSearch className="search-icon" /> {/* Add an icon */}
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search by name or description"
+          value={searchTerm}
+          onChange={handleSearchInputChange}
+        />
+      </div>
 
       {searchResults.length > 0 && (
         <ul className="search-ul">
