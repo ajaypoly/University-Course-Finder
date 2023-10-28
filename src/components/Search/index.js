@@ -27,7 +27,7 @@ const UniversitySearch= ({filteredData})=> {
   return (
     <div className="search-div">
       <div className="sticky-search">
-        <FcSearch className="search-icon" /> {/* Add an icon */}
+        <FcSearch className="search-icon" /> 
         <input
           className="search-input"
           type="text"

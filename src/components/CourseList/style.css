@@ -9,11 +9,15 @@
 }
 
 .course-pagination {
+    /* position: fixed;
+    top: 89%;
+    left: 25%; */
+}
+.course-pagination-div{
     position: fixed;
     top: 89%;
-    left: 25%;
+    width: 100%;
 }
-
 .course-box {
     background-color: rgba(253, 253, 253, 0.67);
     border-radius: 20px;

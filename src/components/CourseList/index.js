@@ -11,32 +11,31 @@ const CourseLists = () => {
   const [data, setData] = useState(courseData);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedNames, setSelectedNames] = useState([]);
-  const pageCount = Math.ceil(data.length / itemsPerPage);
-  const getVisibleCourses = () => {
-    const startIndex = currentPage * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    
+  const [pagenation, setPagenation] = useState(data);
+
+  // Update pagenation when currentPage or selectedNames change
+  useEffect(() => {
     const filteredData = data.filter((course) => {
       if (selectedNames.length === 0) {
-        return true; 
+        return true;
       }
       return selectedNames.includes(course.country);
     });
-  
-    const groupedCourses = {};
-  
-    filteredData.forEach((course) => {
-      if (!groupedCourses[course.country]) {
-        groupedCourses[course.country] = [];
-      }
-      groupedCourses[course.country].push(course);
-    });
-  
-    const selectedCountryCourses = selectedNames.length > 0 ? groupedCourses[selectedNames[0]] : data;
-  
+    setPagenation(filteredData);
+  }, [currentPage, selectedNames, data]);
+
+  const pageCount = Math.ceil(pagenation.length / itemsPerPage);
+
+  const getVisibleCourses = () => {
+    const startIndex = currentPage * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    const selectedCountryCourses =
+      selectedNames.length > 0 ? pagenation : data;
+
     return selectedCountryCourses.slice(startIndex, endIndex);
   };
-  
+
   
 
   const handlePageClick = ({ selected }) => {
@@ -47,7 +46,6 @@ const CourseLists = () => {
     setSelectedNames(selectedNames.map((item) => item.value));
   };
 
-  const applyFilter = () => {};
 
   const groupedData = {};
   data.forEach((course) => {
@@ -112,6 +110,7 @@ const uniqueCountryOptions = [...uniqueCountryNames].map((countryName) => ({
             </div>
           ))}
         </div>
+        <div className="course-pagination-div">
         <div className="course-pagination">
           <ReactPaginate
             className="course-pagination-component"
@@ -125,6 +124,8 @@ const uniqueCountryOptions = [...uniqueCountryNames].map((countryName) => ({
             forcePage={currentPage}
           />
         </div>
+        </div>
+       
       </div>
     </>
   );
