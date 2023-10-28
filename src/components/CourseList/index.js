@@ -12,18 +12,32 @@ const CourseLists = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedNames, setSelectedNames] = useState([]);
   const pageCount = Math.ceil(data.length / itemsPerPage);
-
   const getVisibleCourses = () => {
     const startIndex = currentPage * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    let filteredData = data.filter((course) => {
+    
+    const filteredData = data.filter((course) => {
       if (selectedNames.length === 0) {
-        return true; // No filter, show all courses
+        return true; 
       }
-      return selectedNames.includes(course.name);
+      return selectedNames.includes(course.country);
     });
-    return filteredData.slice(startIndex, endIndex);
+  
+    const groupedCourses = {};
+  
+    filteredData.forEach((course) => {
+      if (!groupedCourses[course.country]) {
+        groupedCourses[course.country] = [];
+      }
+      groupedCourses[course.country].push(course);
+    });
+  
+    const selectedCountryCourses = selectedNames.length > 0 ? groupedCourses[selectedNames[0]] : data;
+  
+    return selectedCountryCourses.slice(startIndex, endIndex);
   };
+  
+  
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
@@ -35,21 +49,37 @@ const CourseLists = () => {
 
   const applyFilter = () => {};
 
+  const groupedData = {};
+  data.forEach((course) => {
+    if (!groupedData[course.country]) {
+      groupedData[course.country] = [];
+    }
+    groupedData[course.country].push(course);
+  });
+  const uniqueCountryNames = new Set();
+
+data.forEach((course) => {
+  uniqueCountryNames.add(course.country);
+});
+
+const uniqueCountryOptions = [...uniqueCountryNames].map((countryName) => ({
+  label: countryName,
+  value: countryName,
+}));
+
+
   return (
     <>
       <div>
         <div>
-          <UniversitySearch />
+          <UniversitySearch filteredData={groupedData[selectedNames[0]] || data} />
         </div>
         <div className="filter-names">
           <Select
             className="filter-select"
-            placeholder="Filter with University names"
+            placeholder="Filter with country names"
             multi
-            options={data.map((course) => ({
-              label: course.name,
-              value: course.name,
-            }))}
+            options={uniqueCountryOptions}
             onChange={handleNameFilterChange}
             values={selectedNames}
           />
